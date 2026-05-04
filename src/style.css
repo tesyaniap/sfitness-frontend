@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans text-dark bg-white;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary hover:bg-secondary text-white font-semibold px-6 py-2.5 rounded-xl transition-colors duration-200;
+  }
+  .btn-outline {
+    @apply border-2 border-primary text-secondary hover:bg-highlight font-semibold px-6 py-2.5 rounded-xl transition-colors duration-200;
+  }
+  .card {
+    @apply bg-white rounded-2xl shadow-sm border border-highlight p-6;
+  }
+  .input {
+    @apply w-full border border-gray-200 rounded-xl px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition;
+  }
+  .badge-confirmed { @apply bg-green-100 text-green-700 text-xs font-medium px-2.5 py-1 rounded-full; }
+  .badge-pending   { @apply bg-yellow-100 text-yellow-700 text-xs font-medium px-2.5 py-1 rounded-full; }
+  .badge-cancelled { @apply bg-red-100 text-red-700 text-xs font-medium px-2.5 py-1 rounded-full; }
+}
+
+/* Safe area for mobile notch/home bar */
+.safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+
+/* Prevent horizontal scroll on mobile */
+html, body { overflow-x: hidden; }
+
+/* Toast custom style */
+:root {
+  --toastify-color-success: #98E46B;
+  --toastify-color-error:   #ff6b6b;
+  --toastify-color-warning: #ffd93d;
+  --toastify-color-info:    #F4A6C5;
+  --toastify-font-family:   'Inter', sans-serif;
+  --toastify-border-radius: 16px;
+}
