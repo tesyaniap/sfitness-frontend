@@ -35,7 +35,9 @@ const routes = [
       { path: 'products', name: 'AdminProducts',  component: () => import('@/views/admin/ProductsView.vue') },
       { path: 'members',  name: 'AdminMembers',   component: () => import('@/views/admin/MembersView.vue') },
       { path: 'orders',   name: 'AdminOrders',    component: () => import('@/views/admin/OrdersView.vue') },
-      { path: 'kasir',    name: 'AdminKasir',     component: () => import('@/views/admin/KasirView.vue') },
+      { path: 'kasir',       name: 'AdminKasir',       component: () => import('@/views/admin/KasirView.vue') },
+      { path: 'memberships',  name: 'AdminMemberships', component: () => import('@/views/admin/gym/MembershipsView.vue') },
+      { path: 'attendance',   name: 'AdminAttendance',  component: () => import('@/views/admin/gym/AttendanceView.vue') },
     ],
   },
 

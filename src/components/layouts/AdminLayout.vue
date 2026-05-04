@@ -92,6 +92,7 @@ import {
   ChartBarIcon, CalendarDaysIcon, ShoppingBagIcon,
   UsersIcon, ReceiptRefundIcon, HeartIcon,
   ArrowRightOnRectangleIcon, CalculatorIcon,
+  ClipboardDocumentListIcon, UserGroupIcon,
 } from '@heroicons/vue/24/outline'
 import { useAuthStore } from '@/stores/auth'
 import { useRouter } from 'vue-router'
@@ -102,20 +103,22 @@ const router = useRouter()
 const toast  = useToast()
 
 const navItems = [
-  { to: '/admin',          icon: ChartBarIcon,      label: 'Dashboard' },
-  { to: '/admin/kasir',    icon: CalculatorIcon,    label: 'Kasir' },
-  { to: '/admin/classes',  icon: CalendarDaysIcon,  label: 'Kelas' },
-  { to: '/admin/products', icon: ShoppingBagIcon,   label: 'Produk Kantin' },
-  { to: '/admin/members',  icon: UsersIcon,         label: 'Member' },
-  { to: '/admin/orders',   icon: ReceiptRefundIcon, label: 'Transaksi' },
+  { to: '/admin',              icon: ChartBarIcon,              label: 'Dashboard' },
+  { to: '/admin/kasir',        icon: CalculatorIcon,            label: 'Kasir' },
+  { to: '/admin/memberships',  icon: UserGroupIcon,             label: 'Membership' },
+  { to: '/admin/attendance',   icon: ClipboardDocumentListIcon, label: 'Absensi' },
+  { to: '/admin/classes',      icon: CalendarDaysIcon,          label: 'Kelas' },
+  { to: '/admin/products',     icon: ShoppingBagIcon,           label: 'Produk Kantin' },
+  { to: '/admin/members',      icon: UsersIcon,                 label: 'Member' },
+  { to: '/admin/orders',       icon: ReceiptRefundIcon,         label: 'Transaksi' },
 ]
 
 const mobileNav = [
-  { to: '/admin',          icon: ChartBarIcon,     label: 'Dashboard' },
-  { to: '/admin/kasir',    icon: CalculatorIcon,   label: 'Kasir' },
-  { to: '/admin/classes',  icon: CalendarDaysIcon, label: 'Kelas' },
-  { to: '/admin/products', icon: ShoppingBagIcon,  label: 'Produk' },
-  { to: '/admin/members',  icon: UsersIcon,        label: 'Member' },
+  { to: '/admin',             icon: ChartBarIcon,              label: 'Dashboard' },
+  { to: '/admin/kasir',       icon: CalculatorIcon,            label: 'Kasir' },
+  { to: '/admin/memberships', icon: UserGroupIcon,             label: 'Member' },
+  { to: '/admin/attendance',  icon: ClipboardDocumentListIcon, label: 'Absensi' },
+  { to: '/admin/products',    icon: ShoppingBagIcon,           label: 'Produk' },
 ]
 
 async function handleLogout() {
