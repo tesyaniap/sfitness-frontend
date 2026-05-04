@@ -67,16 +67,25 @@ let controls = null
 onMounted(async () => {
   reader = new BrowserMultiFormatReader()
   try {
+    // Minta permission kamera eksplisit dulu — ini yang trigger alert di HP
+    await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
+      .then(stream => stream.getTracks().forEach(t => t.stop()))
+
     const devices = await BrowserMultiFormatReader.listVideoInputDevices()
     cameras.value = devices
 
-    // Prefer back camera on mobile
     const backCam = devices.find(d => /back|rear|environment/i.test(d.label))
     selectedCamera.value = backCam?.deviceId || devices[0]?.deviceId || ''
 
     await startScan()
   } catch (e) {
-    error.value = 'Tidak bisa mengakses kamera. Pastikan izin kamera sudah diberikan.'
+    if (e.name === 'NotAllowedError') {
+      error.value = 'Izin kamera ditolak. Buka pengaturan browser dan izinkan akses kamera.'
+    } else if (e.name === 'NotFoundError') {
+      error.value = 'Kamera tidak ditemukan di perangkat ini.'
+    } else {
+      error.value = 'Tidak bisa mengakses kamera. Pastikan izin kamera sudah diberikan.'
+    }
   }
 })
 
