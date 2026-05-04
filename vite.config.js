@@ -24,13 +24,6 @@ export default defineConfig({
       '192.168.43.130',
       '.trycloudflare.com',
     ],
-    proxy: {
-      '/api': {
-        target: 'http://localhost:8000',
-        changeOrigin: true,
-        secure: false,
-      },
-    },
     ...(hasCerts && {
       https: {
         cert: fs.readFileSync(certPath),
